@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "moment": "^2.29.4"
+  },
+  "name": "project",
+  "version": "0.0.1",
+  "description": "Learn React first package",
+  "main": "Main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ShapeOus",
+  "license": "MIT"
+}

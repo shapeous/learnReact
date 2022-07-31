@@ -49,3 +49,62 @@
   I am Module1
   { a: 1, b: 2 }
   ```
+- We can also install modules using the node package manager, npm.  This will install them under the `node_modules` folder.  We can then require it.  Note, we do not need to specify the path, it knows to look inside the `node_modules` folder.  The package has a `package.json` file which among other things specifies the entry point for the application.  Here is more about the [package.json](https://nodejs.dev/learn/the-package-json-guide).  
+  ```powershell
+  PS C:\inetpub\learn\learnReact\nodejs> New-Item project -ItemType Directory
+  PS C:\inetpub\learn\learnReact\nodejs> cd .\project\
+  PS C:\inetpub\learn\learnReact\nodejs\project> npm install moment
+
+  added 1 package, and audited 2 packages in 5s
+
+  found 0 vulnerabilities
+  PS C:\inetpub\learn\learnReact\nodejs\project> Set-Content .\Main.js "var moment = require('moment');`rconsole.log(moment().format('MMMM Do YYYY, h:mm:ss a'));"
+  PS C:\inetpub\learn\learnReact\nodejs\project> node Main
+  July 29th 2022, 12:03:21 am
+  ```
+- As we add more modules and our project grows we may want to distribute it so other developers can use or contribute to it.  We can do this by creating our own package.  This way a new developer can get the exact modules we use at the correct versions.  To do that we need to initialize the package as follows.
+  ```powershell
+  PS C:\inetpub\learn\learnReact\nodejs\project> npm init
+  This utility will walk you through creating a package.json file.
+  It only covers the most common items, and tries to guess sensible defaults.
+
+  See `npm help init` for definitive documentation on these fields
+  and exactly what they do.
+
+  Use `npm install <pkg>` afterwards to install a package and
+  save it as a dependency in the package.json file.
+
+  Press ^C at any time to quit.
+  package name: (project)
+  version: (1.0.0) 0.0.1
+  description: Learn React first package
+  entry point: (Main.js)
+  test command:
+  git repository:
+  keywords:
+  author: ShapeOus
+  license: (ISC) MIT
+  About to write to C:\inetpub\learn\learnReact\nodejs\project\package.json:
+
+  {
+    "dependencies": {
+      "moment": "^2.29.4"
+    },
+    "name": "project",
+    "version": "0.0.1",
+    "description": "Learn React first package",
+    "main": "Main.js",
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "ShapeOus",
+    "license": "MIT"
+  }
+
+  Is this OK? (yes) yes
+  ```
+- The `node_modules` folder contains other people's code and even binary executables so make sure to ignore it using a `.gitignore' file as follows.
+  ```powershell
+  PS C:\inetpub\learn\learnReact\nodejs\project> Set-Content .\.gitignore "mode_modules"
+  ```
