@@ -1,8 +1,8 @@
 # learnReact
 
 ## NodeJS
-- There is no window object instead there is a global object
-- There is also no document object there is a process
+- There is no window object instead there is a global object.
+- There is also no document object instead there is a process object.
   ```powershell
     PS C:\WINDOWS\system32> node
     Welcome to Node.js v16.14.0.
@@ -49,7 +49,7 @@
   I am Module1
   { a: 1, b: 2 }
   ```
-- We can also install modules using the node package manager, npm.  This will install them under the `node_modules` folder.  We can then require it.  Note, we do not need to specify the path, it knows to look inside the `node_modules` folder.  The package has a `package.json` file which among other things specifies the entry point for the application.  Here is more about the [package.json](https://nodejs.dev/learn/the-package-json-guide).  
+- We can also install modules using the node package manager, npm.  This will install them under the `node_modules` folder.  We can then require it.  Note, we do not need to specify the path, it knows to look inside the `node_modules` folder.  The package has a `package.json` file which among other things specifies the entry point for the package.  Here is more about the [package.json](https://nodejs.dev/learn/the-package-json-guide).  
   ```powershell
   PS C:\inetpub\learn\learnReact\nodejs> New-Item project -ItemType Directory
   PS C:\inetpub\learn\learnReact\nodejs> cd .\project\
@@ -108,13 +108,18 @@
   ```powershell
   PS C:\inetpub\learn\learnReact\nodejs\project> Set-Content .\.gitignore "mode_modules"
   ```
-- Now we can install additional packages and they will be automatically added to the package dependencies.  Like before, we can then require and use the package in our `Main.js` script.
+- Now we can install additional packages and they will be automatically added to the package dependencies.  Like before, we can then require and use the package in our `Main.js` script.  
   ```powershell
   PS /.../dev/learnReact/nodejs/project> npm install uuid
 
   added 1 package, and audited 3 packages in 2s
 
   found 0 vulnerabilities
+  PS /.../dev/learnReact/nodejs/project> Get-Content ./Main.js
+  var moment = require('moment');
+  var { v4: uuidv4 } = require('uuid');
+  console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+  console.log(uuidv4());
   PS /.../dev/learnReact/nodejs/project> node Main          
   July 31st 2022, 11:24:21 pm
   c89ec9e5-1c25-4703-b48f-f637c8154a8a
