@@ -108,3 +108,14 @@
   ```powershell
   PS C:\inetpub\learn\learnReact\nodejs\project> Set-Content .\.gitignore "mode_modules"
   ```
+- Now we can install additional packages and they will be automatically added to the package dependencies.  Like before, we can then require and use the package in our `Main.js` script.
+  ```powershell
+  PS /.../dev/learnReact/nodejs/project> npm install uuid
+
+  added 1 package, and audited 3 packages in 2s
+
+  found 0 vulnerabilities
+  PS /.../dev/learnReact/nodejs/project> node Main          
+  July 31st 2022, 11:24:21 pm
+  c89ec9e5-1c25-4703-b48f-f637c8154a8a
+  ```
