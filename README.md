@@ -124,3 +124,17 @@
   July 31st 2022, 11:24:21 pm
   c89ec9e5-1c25-4703-b48f-f637c8154a8a
   ```
+- If you have more than one GIT repository, you may want to use multiple users.  Set the default user globally as follows.  This will update the `~/.gitconfig` file.
+  ```powershell
+  git config --global user.name "Your Name Here"
+  git config --global user.email your@email.com
+  Get-Content ~\.gitconfig
+  ```
+- You can then override this global user on any specific local repo as follows.  This will updat the `.git/config` file.
+  ```powershell
+  cd /path/to/repo
+  git config user.name "Your Name Here"
+  git config user.email your@email.com
+  Get-Content .git/config
+  ```
+
