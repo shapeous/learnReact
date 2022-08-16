@@ -137,4 +137,20 @@
   git config user.email your@email.com
   Get-Content .git/config
   ```
+- We can also create a Web server using the `http` package (see below).  The `http` package is part of core so it does not need to be installed.  After running the script notice that nothing happens until you hit localhost on port 3000.
+  ```powershell
+  > New-Item .\webServer -ItemType Directory
+  > cd .\webServer\
+  > Set-Content .\Main.js ''
+  > Get-Content .\Main.js
+    var http = require('http');
 
+    var server = http.createServer((request, response) => {
+      console.log('We received a request', request.eventNames());
+      response.write("<h1>Hello, Node!</h1>");
+      response.end();
+    });
+
+    server.listen(3000);
+  > node .\Main.js
+  ```
